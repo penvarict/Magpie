@@ -31,7 +31,12 @@ public class Magpie3 {
 			response = "Say something, please.";
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
-		} else if (findKeyword(statement, "mother") >= 0
+		} else if (findKeyword(statement, "cat") >= 0 || findKeyword(statement, "dog") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "Padjen") >= 0) {
+			response = "He sounds like a good teacher";
+		}
+		else if (findKeyword(statement, "mother") >= 0
 				|| findKeyword(statement, "father") >= 0
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
@@ -121,7 +126,7 @@ public class Magpie3 {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -134,6 +139,10 @@ public class Magpie3 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		}else if (whichResponse == 4) {
+			response = "wow";
+		} else if (whichResponse == 5) {
+			response = "youre dope";
 		}
 
 		return response;
