@@ -47,6 +47,11 @@ public class Magpie4 {
 		else if (findKeyword(statement, "I want to", 0) >= 0) {
 			response = transformIWantToStatement(statement);
 		}
+		// insert phrase and transfor you to me statement for example an input like i hate you would be why do you hate me
+		else if (statement.substring(0) == "I" && statement.substring(statement.length() - 2, statement.length()) == "me") {
+			String restOfStatement = statement.substring(2, statement.length() - 2);
+			response = "Why do you" + restOfStatement + "me?";
+		}
 
 		else {
 			// Look for a two word (you <something> me)
